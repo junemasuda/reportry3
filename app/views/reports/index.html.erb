@@ -1,0 +1,6 @@
+<div class="row">
+  <%= form_tag new_item_path , method: :get do %>
+    <%= text_field_tag :q , params[:q], placeholder: "キーワードを入力", required: true %>
+    <%= submit_tag "アイテムを検索", name: nil , class: "btn btn-success", data: { disable_with: "検索中..."} %>
+  <% end %>
+</div>

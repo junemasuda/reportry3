@@ -1,6 +1,11 @@
 class ReportsController < ApplicationController
   before_action :logged_in_user, only: [:create,]
   
+  def index
+    @q = Report.ransack(params[:q])
+    @reports = @q.result
+  end
+  
   def show
     @report = current_user.reports.build(report_params)
     if @report.save
