@@ -1,7 +1,7 @@
 <li id="report-<%= report.id %>">
   <%= link_to gravatar_for(report.user, size: 50), report.user %>
   <span class="user"><%= link_to report.user.name, report.user %></span>
-  <span class="title"><%= report.title %></span>
+  <span class="title"><%= link_to report, report %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(report.created_at) %> ago.
   </span>

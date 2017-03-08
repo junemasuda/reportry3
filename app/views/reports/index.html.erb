@@ -1,16 +1,25 @@
+<div class="row">
+  <aside class="col-md-8">
+    <section class="user_info">
 <%= search_form_for @q do |f| %>
 
-  # nameが入力テキストを含むレコードを検索
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont %>
+  <%= f.label :title_cont %>
+  <%= f.search_field :title_cont %>
 
-  # articles.titleが入力テキストを含むレコードを検索
-  <%= f.label :artist_title_start %>
-  <%= f.search_field :artist_title_start %>
+ 
+  <%= f.label :artist_cont %>
+  <%= f.search_field :artist_cont %>
 
-  # orで複数フィールドを指定できる
-  <%= f.label :name_or_content_or_artist_or_title_cont %>
-  <%= f.search_field :name_or_content_or_artist_or_title_cont %>
+  
+  <%= f.label :content_or_artist_or_title_cont %>
+  <%= f.search_field :content_or_artist_or_title_cont %>
 
   <%= f.submit %>
 <% end %>
+      
+    </section>
+  </aside>
+  </div>
+</div>
+
+

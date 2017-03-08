@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   before_action :logged_in_user, only: [:create,]
   
   def index
-    @q = Report.ransack(params[:q])
+    @q = Report.search(params[:q])
     @reports = @q.result
   end
   
@@ -39,6 +39,6 @@ class ReportsController < ApplicationController
   
   private
   def report_params
-    params.require(:report).permit(:content)
+    params.permit(:title, :artist, :content)
   end
 end
