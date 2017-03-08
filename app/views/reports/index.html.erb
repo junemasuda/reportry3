@@ -1,6 +1,16 @@
-<div class="row">
-  <%= form_tag new_item_path , method: :get do %>
-    <%= text_field_tag :q , params[:q], placeholder: "キーワードを入力", required: true %>
-    <%= submit_tag "アイテムを検索", name: nil , class: "btn btn-success", data: { disable_with: "検索中..."} %>
-  <% end %>
-</div>
+<%= search_form_for @q do |f| %>
+
+  # nameが入力テキストを含むレコードを検索
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  # articles.titleが入力テキストを含むレコードを検索
+  <%= f.label :artist_title_start %>
+  <%= f.search_field :artist_title_start %>
+
+  # orで複数フィールドを指定できる
+  <%= f.label :name_or_content_or_artist_or_title_cont %>
+  <%= f.search_field :name_or_content_or_artist_or_title_cont %>
+
+  <%= f.submit %>
+<% end %>
