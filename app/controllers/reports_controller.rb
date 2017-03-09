@@ -6,16 +6,11 @@ class ReportsController < ApplicationController
     @reports = @q.result
   end
   
+
   def show
-    @report = current_user.reports.build(report_params)
-    if @report.save
-      flash[:success] = "Favorited this Microposts!"
-      redirect_to root_url
-    else
-      @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc).page(params[:page]).per(10)# この行を追加
-      render 'static_pages/home'
-    end
+    @report = Report.find(params[:id])
   end
+  
   
   def create
     @report = current_user.reports.build(report_params)
