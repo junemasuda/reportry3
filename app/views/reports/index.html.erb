@@ -16,7 +16,9 @@
 
   <%= f.submit %>
 <% end %>
-      
+    <% @reports.each do |r| %>
+       <%= link_to r.title, r %> | <%= r.artist %>| <%= simple_format(r.content) %> <br>
+    <% end %>
     </section>
   </aside>
   </div>

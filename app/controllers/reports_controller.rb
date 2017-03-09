@@ -2,27 +2,24 @@ class ReportsController < ApplicationController
   before_action :logged_in_user, only: [:create,]
   
   def index
-    @q = Report.search(params[:q])
-    @reports = @q.result
+      @q = Report.where(user_id: current_user.id).search(params[:q])
+      @reports = @q.result
   end
-  
 
   def show
     @report = Report.find(params[:id])
   end
   
-  
   def create
     @report = current_user.reports.build(report_params)
+ #   binding.pry
     if @report.save
       flash[:success] = "Report created!"
       redirect_to root_url
     else
-      @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc).page(params[:page]).per(10)# この行を追加
       render 'static_pages/home'
     end
   end
-  
   
   def destroy
     @report = current_user.reports.find_by(id: params[:id])
@@ -34,6 +31,6 @@ class ReportsController < ApplicationController
   
   private
   def report_params
-    params.permit(:title, :artist, :content)
+    params.require(:report).permit(:title, :artist, :content)
   end
 end
