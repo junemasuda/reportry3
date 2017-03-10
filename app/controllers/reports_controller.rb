@@ -5,7 +5,7 @@ class ReportsController < ApplicationController
       @q = Report.where(user_id: current_user.id).search(params[:q])
       @reports = @q.result
   end
-
+  
   def show
     @report = Report.find(params[:id])
   end
@@ -18,6 +18,26 @@ class ReportsController < ApplicationController
       redirect_to root_url
     else
       render 'static_pages/home'
+    end
+  end
+  
+  def edit
+    @report = Report.find(params[:id])
+    if (current_report != @report)
+      redirect_to root_path
+    end
+  end
+  
+  def update
+    @report = Report.find(params[:id])
+    if (current_report !=@report)
+      redirect_to root_path
+    end
+    if(@report.update(report_profile))
+      redirect_to user_path(@report.id), notice:"保存できました"
+    else
+      flash.now[:alert] = "保存に失敗しました"
+      render :edit
     end
   end
   
