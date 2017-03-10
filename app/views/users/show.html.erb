@@ -8,6 +8,10 @@
     </section>
   </aside>
   <div class="col-md-8">
+     <br>
+        <%= link_to "プロフィールを編集する", edit_user_path(@user), method: "get" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to "レポートを検索する", reports_path(@user), method: "get" %>
+      </br>
     <% if @user.reports.any? %>
       <h3> 記録履歴  (<%= @user.reports.count %>)</h3>
       <ol class="reports">

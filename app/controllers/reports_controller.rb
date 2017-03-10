@@ -2,7 +2,8 @@ class ReportsController < ApplicationController
   before_action :logged_in_user, only: [:create,]
   
   def index
-      @q = Report.where(user_id: current_user.id).search(params[:q])
+      @q = Report.search(params[:q])
+     #@q = Report.where(user_id: current_user.id).search(params[:q])
       @reports = @q.result
   end
   
