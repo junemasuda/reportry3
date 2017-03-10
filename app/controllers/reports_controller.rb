@@ -14,7 +14,7 @@ class ReportsController < ApplicationController
     @report = current_user.reports.build(report_params)
  #   binding.pry
     if @report.save
-      flash[:success] = "Report created!"
+      flash[:success] = "レポートが作成されました！！"
       redirect_to root_url
     else
       render 'static_pages/home'
@@ -25,7 +25,7 @@ class ReportsController < ApplicationController
     @report = current_user.reports.find_by(id: params[:id])
     return redirect_to root_url if @report.nil?
     @report.destroy
-    flash[:success] = "Report deleted"
+    flash[:success] = "レポートを削除しました"
     redirect_to request.referrer || root_url
   end
   
