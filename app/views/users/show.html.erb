@@ -9,7 +9,7 @@
   </aside>
   <div class="col-md-8">
     <% if @user.reports.any? %>
-      <h3>Reports (<%= @user.reports.count %>)</h3>
+      <h3> 記録履歴  (<%= @user.reports.count %>)</h3>
       <ol class="reports">
         <%= render @reports %>
       </ol>

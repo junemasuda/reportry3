@@ -1,11 +1,10 @@
-<h1>レポート</h1>
+<h1><%= link_to @report.title %> | <%= @report.artist %></h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-      <%= @report.user %>
-      <%= @report.title %>
-      <%= @report.artist %>
-      <%= @report.content %>
-   
+     
+     <br>タイトル：<%= link_to @report.title %></br> 
+     <br>アーティスト/作曲家：<%= @report.artist %></br> 
+     <br>内容：</br><%= simple_format(@report.content) %>
   </div>
 </div>
