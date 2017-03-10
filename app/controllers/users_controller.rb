@@ -33,9 +33,9 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     if(@user.update(user_profile))
-      redirect_to user_path(@user.id), notice:"保存できました"
+      redirect_to user_path(@user.id), notice:"保存できました！"
     else
-      flash.now[:alert] = "保存に失敗しました"
+      flash.now[:alert] = "保存に失敗しました・・・"
       render :edit
     end
   end

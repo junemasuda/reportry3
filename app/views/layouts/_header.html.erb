@@ -4,16 +4,16 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "ホーム", root_path %></li>
-        <li><%= link_to "Help", '#' %></li>
+        <li><%= link_to "レポート検索", reports_path %></li>
         <% if logged_in? %>
-          <li><%= link_to "Users", '#' %></li>
+         
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Account <b class="caret"></b>
+             アカウント <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "プロフィール", current_user %></li>
-              <li><%= link_to "Settings", '#' %></li>
+              <li><%= link_to "レポート作成", new_report_path(@user) %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to "ログアウト", logout_path, method: "delete" %>
