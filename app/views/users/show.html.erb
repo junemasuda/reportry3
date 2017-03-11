@@ -9,7 +9,7 @@
   </aside>
   <div class="col-md-8">
      <br>
-        <%= link_to "レポートを作成する", new_report_path(@user), method: "get" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to "新規レポートを作成する", new_report_path(@user), method: "get" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <%= link_to "プロフィールを編集する", edit_user_path(@user), method: "get" %>
       </br>
     <% if @user.reports.any? %>

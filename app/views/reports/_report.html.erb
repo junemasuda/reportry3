@@ -4,5 +4,10 @@
   <span class="title"><%= link_to report.title, report %>    (<%= report.artist %>)</span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(report.created_at) %> ago.
+    <% if current_user == report.user %>
+    
+     <%= link_to "削除する", report, method: :delete,
+                                       data: { confirm: "削除してもよろしいですか？" } %>
+    <% end %>
   </span>
 </li>
