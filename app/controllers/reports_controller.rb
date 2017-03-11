@@ -27,15 +27,13 @@ class ReportsController < ApplicationController
   end
   
   def update
+    params.permit!
     @report = Report.find(params[:id])
-    if (current_user !=@user)
-      redirect_to root_path
-    end
-    if @report.update
-      redirect_to report_path(@report.id), notice:"保存できました！"
+    @report.assign_attributes(params[:report])
+    if @report.save
+      redirect_to @report, notice: "レポートを編集しました！！"
     else
-      flash.now[:alert] = "保存に失敗しました・・・"
-      render :edit
+      render "edit"
     end
   end
   

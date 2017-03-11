@@ -28,16 +28,13 @@ class UsersController < ApplicationController
   end
   
   def update
+    params.permit!
     @user = User.find(params[:id])
-    if (current_user !=@user)
-      redirect_to root_path
-    end
-    @user.attributes = params[:user]
+    @user.assign_attributes(params[:user])
     if @user.save
-      redirect_to user_path(@user.id), notice:"保存できました！"
+      redirect_to @user, notice: "プロフィールを更新しました！！"
     else
-      flash.now[:alert] = "保存に失敗しました・・・"
-      render :edit
+      render "edit"
     end
   end
 
