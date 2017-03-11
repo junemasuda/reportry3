@@ -32,7 +32,8 @@ class UsersController < ApplicationController
     if (current_user !=@user)
       redirect_to root_path
     end
-    if(@user.update(user_profile))
+    @user.attributes = params[:user]
+    if @user.save
       redirect_to user_path(@user.id), notice:"保存できました！"
     else
       flash.now[:alert] = "保存に失敗しました・・・"
@@ -43,7 +44,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :free_contents)
   end
 end

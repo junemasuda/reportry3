@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :logged_in_user, only: [:create,]
+  before_action :logged_in_user, only: [:create, :edit, :update]
   
   def index
       @q = Report.search(params[:q])
@@ -24,18 +24,15 @@ class ReportsController < ApplicationController
   
   def edit
     @report = Report.find(params[:id])
-    if (current_report != @report)
-      redirect_to root_path
-    end
   end
   
   def update
     @report = Report.find(params[:id])
-    if (current_report !=@report)
+    if (current_user !=@user)
       redirect_to root_path
     end
-    if(@report.update(report_profile))
-      redirect_to user_path(@report.id), notice:"保存できました！"
+    if @report.update
+      redirect_to report_path(@report.id), notice:"保存できました！"
     else
       flash.now[:alert] = "保存に失敗しました・・・"
       render :edit
