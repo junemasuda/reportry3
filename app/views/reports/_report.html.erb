@@ -3,7 +3,7 @@
   <span class="user"><%= link_to report.user.name, report.user %></span>
   <span class="title"><%= link_to report.title, report %>    (<%= report.artist %>)</span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(report.created_at) %> ago.
+    <%= time_ago_in_words(report.created_at)+"前" %> 
     <% if current_user == report.user %>
     
      <%= link_to "削除する", report, method: :delete,
