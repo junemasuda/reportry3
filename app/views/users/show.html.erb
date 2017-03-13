@@ -9,8 +9,9 @@
   </aside>
   <div class="col-md-8">
      <br>
-        <%= link_to "新規レポートを作成する", new_report_path(@user), method: "get" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= link_to "プロフィールを編集する", edit_user_path(@user), method: "get" %>
+        <%= link_to "新規レポートを作成する", new_report_path(@user), method: "get", class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to "プロフィールを編集する", edit_user_path(@user), method: "get", class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to "レポートを検索する", reports_path, method: "get", class: "btn btn-primary" %>
       </br>
     <% if @user.reports.any? %>
       <h3> レポート履歴 (<%= @user.reports.count %>)</h3>

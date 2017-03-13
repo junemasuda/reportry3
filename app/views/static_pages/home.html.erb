@@ -3,7 +3,8 @@
     <section class="user_info">
       <h1>Reportry-楽器演奏記録サイト</h1>
       <% if logged_in? %>
-        <br><%= link_to "プロフィール", current_user, class: "btn btn-primary" %></br>
+      　<br><%= link_to "新規レポート作成", new_report_path(@user), class: "btn btn-primary" %></br>
+        <br><%= link_to "プロフィール・マイレポート一覧", current_user, class: "btn btn-primary" %></br>
         <br><%= link_to "ログアウト", logout_path, method: "delete", class: "btn btn-primary" %></br>
       <% else %>
        <br><%= link_to '新規登録' , new_user_path, class: "btn btn-primary" %></br>
