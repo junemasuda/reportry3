@@ -4,21 +4,21 @@
     <section class="user_info">
 <%= search_form_for @q do |f| %>
 
-  <%= f.label :title_cont %>
+  <%= f.label :title_cont, "曲名検索" %>
   <%= f.search_field :title_cont %>
 
  
-  <%= f.label :artist_cont %>
+  <%= f.label :artist_cont, "アーティスト/作曲家検索" %>
   <%= f.search_field :artist_cont %>
 
   
-  <%= f.label :content_or_artist_or_title_cont %>
+  <%= f.label :content_or_artist_or_title_cont, "曲名/アーティスト/作曲家/内容全てから検索" %>
   <%= f.search_field :content_or_artist_or_title_cont %>
 
   <%= f.submit "検索" %>
 <% end %>
     <% @reports.each do |r| %>
-       <%= link_to r.title, r %> | <%= r.artist %>| <%= simple_format(r.content) %> <br>
+       <%= link_to r.title, r %> / <%= r.artist %> / <%= simple_format(r.content) %> <br>
     <% end %>
     </section>
   </aside>
