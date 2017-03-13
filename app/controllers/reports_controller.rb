@@ -42,7 +42,7 @@ class ReportsController < ApplicationController
     return redirect_to root_url if @report.nil?
     @report.destroy
     flash[:success] = "レポートを削除しました"
-    redirect_to request.referrer || root_url
+    redirect_to root_path
   end
   
   private
