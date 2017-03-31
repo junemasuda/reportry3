@@ -15,12 +15,32 @@
   <%= f.label :content_or_artist_or_title_cont, "曲名・アーティスト・作曲家・レポート内容全てから検索" %>
   <%= f.search_field :content_or_artist_or_title_cont %>
 
-  <%= f.submit "検索" %>
+  <%= f.submit "検索する！", class: "btn btn-primary" %>
 <% end %>
+<table class="company">
+    <tbody>
+      <tr>
+        <th>タイトル</th>
+        <th>アーティスト/作曲家</th>
+        <th>レポート日時</th>
+        <th>内容</th>
+      </tr>
+    </tbody>
+</table>
+
     <% @reports.each do |r| %>
-       <%= link_to r.title, r %> / <%= r.artist %> / <%= time_ago_in_words(r.created_at)+"前" %> /
-       <%= simple_format(r.content) %> <br>
-    <% end %>
+
+<table class="company">
+    <tbody>
+      <tr>
+       <td><%= link_to r.title, r %></td>
+       <td><%= r.artist %></td>
+       <td><%= time_ago_in_words(r.created_at)+"前" %> </td>
+       <td><%= simple_format(r.content) %></td>
+        <% end %>
+      </tr>
+    </tbody>
+</table>
     </section>
   </aside>
   </div>
