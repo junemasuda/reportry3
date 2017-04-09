@@ -23,7 +23,6 @@
         <th>タイトル</th>
         <th>アーティスト/作曲家</th>
         <th>レポート日時</th>
-        <th>内容</th>
       </tr>
     </tbody>
 </table>
@@ -36,7 +35,6 @@
        <td><%= link_to r.title, r %></td>
        <td><%= r.artist %></td>
        <td><%= time_ago_in_words(r.created_at)+"前" %> </td>
-       <td><%= simple_format(r.content) %></td>
         <% end %>
       </tr>
     </tbody>
