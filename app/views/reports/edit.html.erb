@@ -4,13 +4,13 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@report) do |f| %>
 
-      <%= f.label :title %>
+      <%= f.label :title, "曲名" %>
       <%= f.text_field :title, class: 'form-control' %>
 
-      <%= f.label :artist %>
+      <%= f.label :artist, "作曲家" %>
       <%= f.text_field :artist, class: 'form-control' %>
       
-      <%= f.label :content %>
+      <%= f.label :content, "感想・コツなど" %>
       <%= f.cktext_area :content, class: 'form-control' %>
 
       <%= f.submit "編集を完了する！", class: "btn btn-primary" %>

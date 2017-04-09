@@ -2,17 +2,21 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-      <br><%= link_to "レポートを編集する", edit_report_path(@report), method: "get", class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <% if logged_in? %>
+      <br> <%= link_to "レポートを編集する", edit_report_path(@report), method: "get", class: "btn btn-primary" %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <%= link_to "レポートを削除する", @report, method: "delete", class: "btn btn-primary", 
                                        data: { confirm: "削除してよろしいですか？" } %> </br>
+    　<% else %>
+    　<br></br>
+    　<% end %>
 <table class="company">
     <tbody>
         <tr>
-            <th class="arrow_box">タイトル</div></th>
+            <th class="arrow_box">曲名</div></th>
             <td><%= @report.title %></td>
         </tr>
         <tr>
-            <th class="arrow_box"><br>アーティスト</br>作曲家</th>
+            <th class="arrow_box">作曲家</th>
             <td><%= @report.artist %></td>
         </tr>
         <tr>

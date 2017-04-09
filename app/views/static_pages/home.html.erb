@@ -1,19 +1,28 @@
 
 <div class="row">
-  <aside class="col-md-8">
+  <aside class="col-md-12">
     <section class="user_info">
-      <img src="/assets/tophome.jpg", style="opacity: 0.5">
-      <h1><br>あなたに適した曲と出会える</br>
-      <br></br>
-             Reportry-楽器演奏口コミサイト</h1>
       <% if logged_in? %>
-      　<br><%= link_to "新規レポート作成", new_report_path(@user), class: "btn btn-primary" %></br>
-        <br><%= link_to "プロフィール・マイレポート一覧", current_user, class: "btn btn-primary" %></br>
-        <br><%= link_to "ログアウト", logout_path, method: "delete", class: "btn btn-primary" %></br>
+      　<br><%= link_to "新規レポート作成", new_report_path(@user), class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= link_to "プロフィール・マイレポート一覧", current_user, class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= link_to "ログアウト", logout_path, method: "delete", class: "btn btn-primary" %></br>
       <% else %>
-       <br><%= link_to '新規登録する' , new_user_path, class: "btn btn-primary" %></br>
-       <br><%= link_to 'ログインする' , login_path, class: "btn btn-primary" %></br>
+       <br><%= link_to '新規登録する' , new_user_path, class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <%= link_to 'ログインする' , login_path, class: "btn btn-primary" %></br>
       <% end %>
+      <br></br>
+      <img src="/assets/tophome.png"　width="1200" height="800">
+     
+             <br></br>
+       <% if logged_in? %>
+      　<br><%= link_to "新規レポート作成", new_report_path(@user), class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= link_to "プロフィール・マイレポート一覧", current_user, class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= link_to "ログアウト", logout_path, method: "delete", class: "btn btn-primary" %></br>
+      <% else %>
+       <br><%= link_to '新規登録する' , new_user_path, class: "btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <%= link_to 'ログインする' , login_path, class: "btn btn-primary" %></br>
+      <% end %>
+    <br></br><br></br>
     </section>
   </aside>
   </div>
